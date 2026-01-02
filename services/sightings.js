@@ -10,9 +10,9 @@ exports.getAll = async () => {
 exports.create = async (data, file) => {
     const img_path = file ? file.filename : data.img_path || null;
 
-    const life_status = data.lifeStatus;
-    const mortality_type = life_status === "dead" ? data.mortalityType : null;
-    const other_notes = data.otherNotes || null;
+    const life_status = data.life_status;
+    const mortality_type = life_status === "dead" ? data.mortality_type : null;
+    const other_notes = data.other_notes || null;
     const latitude = parseFloat(data.latitude);
     const longitude = parseFloat(data.longitude);
 
@@ -38,3 +38,4 @@ exports.create = async (data, file) => {
 
     return rows[0];
 };
+
