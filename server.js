@@ -4,7 +4,7 @@ const cors = require("cors");
 const path = require("path");
 
 //mysql connection
-require("./database/connectDB");
+const db = require("./database/connectDB");
 //sightings api
 const sightingsRouter = require("./routes/sightings");
 
@@ -40,6 +40,18 @@ app.use((err, req, res, next) => {
 
 //start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+
+async function startServer() {
+    try {
+        await db.getConnection();
+        console.log("DB connected");
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    } catch (err) {
+        console.error("Database connection failed:", err);
+        process.exit(1);
+    }
+}
+
+startServer();
