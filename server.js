@@ -24,14 +24,6 @@ app.get("/", (req, res) => {
     res.send("Sightings API is running");
 });
 
-//serve React frontend in production
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../zapp/build")));
-    app.get("*", (req, res) => 
-        res.sendFile(path.resolve(__dirname, "../zapp/build", "index.html"))
-    );
-}
-
 //error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -55,3 +47,4 @@ async function startServer() {
 }
 
 startServer();
+
