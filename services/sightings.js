@@ -8,11 +8,11 @@ exports.getAll = async () => {
 };
 
 exports.create = async (data, file) => {
-    const imgPath = file ? file.filename : null;
+    const img_path = file ? file.filename : data.img_path || null;
 
-    const lifeStatus = data.lifeStatus;
-    const mortalityType = lifeStatus === "dead" ? data.mortalityType : null;
-    const otherNotes = data.otherNotes || null;
+    const life_status = data.lifeStatus;
+    const mortality_type = life_status === "dead" ? data.mortalityType : null;
+    const other_notes = data.otherNotes || null;
     const latitude = parseFloat(data.latitude);
     const longitude = parseFloat(data.longitude);
 
@@ -21,10 +21,10 @@ exports.create = async (data, file) => {
         (img_path, life_status, mortality_type, other_notes, latitude, longitude)
         VALUES (?, ?, ?, ?, ?, ?)`,
         [
-            imgPath,
-            lifeStatus,
-            mortalityType,
-            otherNotes,
+            img_path,
+            life_status,
+            mortality_type,
+            other_notes,
             latitude,
             longitude
         ]
