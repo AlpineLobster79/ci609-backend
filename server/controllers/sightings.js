@@ -1,6 +1,6 @@
 const service = require("../services/sightings");
 
-exports.create = async (req, res) => {
+exports.create = async (req, res, next) => {
     console.log("File received:", req.file);
     try {
         const sighting = await service.create(req.body, req.file);
@@ -18,4 +18,5 @@ exports.getAll = async (req, res, next) => {
     } catch (err) {
         next(err);
     }
+
 };
