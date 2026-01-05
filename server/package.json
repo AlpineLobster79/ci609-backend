@@ -1,0 +1,26 @@
+{
+  "name": "ci609-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "multer": "^2.0.2",
+    "mysql2": "^3.16.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "eslint": "^9.39.2"
+  }
+}
